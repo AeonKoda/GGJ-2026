@@ -29,6 +29,8 @@ func _process(_delta: float) -> void:
 		else:
 			SwitchMask("reveal")
 
+func kill_player(cause_of_death:Global.WAYS_TO_DIE)-> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func SwitchMask(targetMask):
 	ResetMaskProperties(mask)
