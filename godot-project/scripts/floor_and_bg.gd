@@ -46,8 +46,8 @@ func _process(delta: float) -> void:
 			print(buildings_till_alley)
 			if buildings_till_alley == 0:
 				var alley = alley_scene.instantiate()
-				alley.position = Vector2(3075, 567)
-				buildings_total_width += 350
+				alley.position = Vector2(3000, 567)
+				buildings_total_width += 210
 				alley.z_index = 1
 				$Buildings.add_child(alley)
 				buildings_till_alley = randi_range(5, 7)
