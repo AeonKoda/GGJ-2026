@@ -1,7 +1,7 @@
 extends Control
 
 # Export variables for the menu buttons
-@export var play_button: Button
+@export var play_button: TextureButton
 @export var high_scores_button: Button
 @export var credits_button: Button
 @export var exit_button: Button
@@ -27,7 +27,7 @@ func _ready() -> void:
 # This function runs when play is pressed
 # It loads the scene for Main
 func _on_play_button_pressed()-> void:
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	start_new_game()
 
 # This function runs when the credits button is pressed
 # It shows the credits pannel
@@ -50,3 +50,15 @@ func _on_high_scores_button_pressed()-> void:
 	
 func _on_high_scores_back_button_pressed()-> void:
 	high_scores.visible = false
+
+func start_new_game()-> void:
+	var tween:Tween = create_tween();
+	tween.tween_property(play_button,"scale",Vector2.ONE*0.8,0.4)\
+	.set_ease(Tween.EASE_OUT)\
+	.set_trans(Tween.TRANS_SPRING)
+	
+	#tween.tween_property(play_button,"scale",Vector2.ONE,0.2)\
+	#.set_ease(Tween.EASE_OUT)\
+	#.set_trans(Tween.TRANS_EXPO)
+	await tween.finished
+	get_tree().change_scene_to_file("res://scenes/main.tscn")

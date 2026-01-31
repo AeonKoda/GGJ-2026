@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://nkx1sj115ct8" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Theme" uid="uid://cgc2dcf1l65js" path="res://ui_theme/default_theme.tres" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://ddyf8csuoxk31" path="res://art/ui/New_Game_Button.png" id="3_bqqt6"]
 
 [node name="MainMenu" type="Control" unique_id=915590663 node_paths=PackedStringArray("play_button", "high_scores_button", "credits_button", "exit_button", "credits", "credits_back_button", "high_scores", "high_scores_back_button")]
 layout_mode = 3
@@ -11,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
-play_button = NodePath("HBoxContainer/VBoxContainer/VBoxContainer/PlayButton")
+play_button = NodePath("HBoxContainer/VBoxContainer/VBoxContainer/Control/PlayButton")
 high_scores_button = NodePath("HBoxContainer/VBoxContainer/VBoxContainer/HighScoresButton")
 credits_button = NodePath("HBoxContainer/VBoxContainer/VBoxContainer/CreditsButton")
 exit_button = NodePath("HBoxContainer/VBoxContainer/VBoxContainer/ExitButton")
@@ -47,11 +48,21 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="PlayButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1837262765]
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=405617202]
+custom_minimum_size = Vector2(100, 136)
 layout_mode = 2
+
+[node name="PlayButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/VBoxContainer/Control" unique_id=1677099960]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 637.0
+offset_bottom = 126.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_vertical = 3
 theme = ExtResource("1_l6cm7")
-text = "Play"
+texture_normal = ExtResource("3_bqqt6")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="HighScoresButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1975235778]
 layout_mode = 2
