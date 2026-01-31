@@ -32,3 +32,27 @@ func _on_player_died()-> void:
 	
 	#[TO-DO] call stop on the enemy spawners and the floor movement script
 	#[TO-DO] display a death screen with the score and potential highscore?
+	check_for_high_score()
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func check_for_high_score() -> void:
+	# High scores are formatted as [{"name": "Alice", "score": 1000}, etc.]
+	var high_scores: Array[Dictionary] = Global.high_scores
+	
+	# Check if the score beats any high scores and 
+	for i in range(high_scores.size()):
+		if current_score > high_scores[i]["score"]:
+			
+			# [TO-DO] add a way to get the player name
+			var player_name: String = "Unkown"
+			
+			# Insert the new score
+			high_scores.insert(i, {"name": player_name, "score": current_score})
+			
+			# Remove the last entry to keep the list size
+			if high_scores.size() > 3:  #Set for 3 high scores at the moment
+				high_scores.pop_back()
+			
+			# Update the global scores
+			Global.high_scores = high_scores
+			break

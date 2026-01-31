@@ -6,6 +6,13 @@ var mask = "none"
 var batMaskSonar = preload("res://scenes/bat_mask_sonar_area.tscn")
 var maskPropertyNode
 
+# This was added by Jarren for debbuging reasons. Allows for testing of player death signal
+#func _ready() -> void:
+	#var tween:Tween = create_tween()
+	#tween.tween_interval(randf_range(1,3))
+	#await tween.finished
+	#player_died.emit()
+
 func _process(delta: float) -> void:
 	
 	# use arrow keys to switch mask, use same arrow key to remove mask
