@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dcswq32yygooq" path="res://art/ui/NumberOne.png" id="4_uo2fv"]
 [ext_resource type="Texture2D" uid="uid://dk7xx2qieb7fa" path="res://art/ui/Speed_Mask.png" id="5_5pdws"]
 [ext_resource type="Texture2D" uid="uid://bel8u6461boh4" path="res://art/ui/NumberTwo.png" id="6_hd3ao"]
+[ext_resource type="Texture2D" uid="uid://cybacq8qfsq7n" path="res://art/ui/Revealing_Mask.png" id="7_0i1j5"]
+[ext_resource type="Texture2D" uid="uid://2lfmisdvf4kl" path="res://art/ui/NumberThree.png" id="8_mphia"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1606327440 node_paths=PackedStringArray("score_value", "ability_1", "ability_input_1", "ability_2", "ability_input_2", "ability_3", "ability_input_3", "ability_4", "ability_input_4", "ability_5", "ability_input_5")]
 script = ExtResource("1_5ysmq")
@@ -115,7 +117,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_uo2fv")
+texture = ExtResource("7_0i1j5")
 expand_mode = 1
 
 [node name="AbilityInput3" type="TextureRect" parent="HUD/AbilityBar/HBoxContainer" unique_id=1350119619]
@@ -123,7 +125,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_uo2fv")
+texture = ExtResource("8_mphia")
 expand_mode = 1
 
 [node name="Ability4" type="TextureRect" parent="HUD/AbilityBar/HBoxContainer" unique_id=439423654]
