@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://m77l7mr0yh54"]
+
+[ext_resource type="Script" uid="uid://ekowrcywmyei" path="res://scripts/hud.gd" id="1_5ysmq"]
+[ext_resource type="Theme" uid="uid://cgc2dcf1l65js" path="res://ui_theme/default_theme.tres" id="2_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://dv330dj7fbk3r" path="res://icon.svg" id="3_uo2fv"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1606327440 node_paths=PackedStringArray("score_value", "ability_1", "ability_input_1", "ability_2", "ability_input_2", "ability_3", "ability_input_3", "ability_4", "ability_input_4", "ability_5", "ability_input_5")]
+script = ExtResource("1_5ysmq")
+score_value = NodePath("HUD/Score/MarginContainer/HBoxContainer/ScoreValue")
+ability_1 = NodePath("HUD/AbilityBar/HBoxContainer/Ability1")
+ability_input_1 = NodePath("HUD/AbilityBar/HBoxContainer/AbilityInput1")
+ability_2 = NodePath("HUD/AbilityBar/HBoxContainer/Ability2")
+ability_input_2 = NodePath("HUD/AbilityBar/HBoxContainer/AbilityInput2")
+ability_3 = NodePath("HUD/AbilityBar/HBoxContainer/Ability3")
+ability_input_3 = NodePath("HUD/AbilityBar/HBoxContainer/AbilityInput3")
+ability_4 = NodePath("HUD/AbilityBar/HBoxContainer/Ability4")
+ability_input_4 = NodePath("HUD/AbilityBar/HBoxContainer/AbilityInput4")
+ability_5 = NodePath("HUD/AbilityBar/HBoxContainer/Ability5")
+ability_input_5 = NodePath("HUD/AbilityBar/HBoxContainer/AbilityInput5")
+
+[node name="HUD" type="Control" parent="." unique_id=1366648526]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Score" type="Control" parent="HUD" unique_id=642387754]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Score" unique_id=57026269]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Score/MarginContainer" unique_id=1712066790]
+layout_mode = 2
+
+[node name="ScoreLabel" type="RichTextLabel" parent="HUD/Score/MarginContainer/HBoxContainer" unique_id=485717180]
+layout_mode = 2
+theme = ExtResource("2_6fi6k")
+text = "SCORE:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ScoreValue" type="RichTextLabel" parent="HUD/Score/MarginContainer/HBoxContainer" unique_id=1453246340]
+layout_mode = 2
+theme = ExtResource("2_6fi6k")
+text = "12345678"
+fit_content = true
+autowrap_mode = 0
+
+[node name="AbilityBar" type="MarginContainer" parent="HUD" unique_id=1511057369]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -338.0
+offset_top = -100.0
+offset_right = 338.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 64
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/AbilityBar" unique_id=75243147]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Ability1" type="TextureRect" parent="HUD/AbilityBar/HBoxContainer" unique_id=1921140404]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_uo2fv")
+expand_mode = 1
+
+[node name="AbilityInput1" type="TextureRect" parent="HUD/AbilityBar/HBoxContainer" unique_id=1472827665]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_uo2fv")
+expand_mode = 1
+
+[node name="Ability2" type="TextureRect" parent="HUD/AbilityBar/HBoxContainer" unique_id=1575686364]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_uo2fv")
+expand_mode = 1
+
+[node name="AbilityInput2" type="TextureRect" parent="HUD/AbilityBar/HBoxContainer" unique_id=1766822016]
+modulate = Color(0, 0, 0.9490196, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_uo2fv")
+expand_mode = 1
+
+[node name="Ability3" type="TextureRect" parent="HUD/AbilityBar/HBoxContainer" unique_id=1502215859]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_uo2fv")
+expand_mode = 1
+
+[node name="AbilityInput3" type="TextureRect" parent="HUD/AbilityBar/HBoxContainer" unique_id=1350119619]
+modulate = Color(0, 0, 0.9490196, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_uo2fv")
+expand_mode = 1
+
+[node name="Ability4" type="TextureRect" parent="HUD/AbilityBar/HBoxContainer" unique_id=439423654]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_uo2fv")
+expand_mode = 1
+
+[node name="AbilityInput4" type="TextureRect" parent="HUD/AbilityBar/HBoxContainer" unique_id=616858860]
+modulate = Color(0, 0, 0.9490196, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_uo2fv")
+expand_mode = 1
+
+[node name="Ability5" type="TextureRect" parent="HUD/AbilityBar/HBoxContainer" unique_id=548927155]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_uo2fv")
+expand_mode = 1
+
+[node name="AbilityInput5" type="TextureRect" parent="HUD/AbilityBar/HBoxContainer" unique_id=1504390740]
+modulate = Color(0, 0, 0.9490196, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_uo2fv")
+expand_mode = 1

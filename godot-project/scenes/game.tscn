@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://6kn4gh5shiwg" path="res://scripts/floor_and_bg.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bvcxic5uprkr7" path="res://scenes/player.tscn" id="2_lbhrr"]
 [ext_resource type="Script" uid="uid://cfby2shv3jk1k" path="res://scripts/enemy_spawner.gd" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://m77l7mr0yh54" path="res://scenes/hud.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D" unique_id=2128105295]
 
@@ -34,6 +35,8 @@ script = ExtResource("3_lnu2h")
 [node name="RaccoonTimer" type="Timer" parent="EnemySpawner" unique_id=456341812]
 
 [node name="ArmyTimer" type="Timer" parent="EnemySpawner" unique_id=1439680860]
+
+[node name="HUD" parent="." unique_id=1606327440 instance=ExtResource("4_lbhrr")]
 
 [connection signal="timeout" from="EnemySpawner/BatsTimer" to="EnemySpawner" method="_on_bats_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/RaccoonTimer" to="EnemySpawner" method="_on_raccoon_timer_timeout"]
