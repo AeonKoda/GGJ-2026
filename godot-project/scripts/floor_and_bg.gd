@@ -4,6 +4,7 @@ extends Node2D
 @onready var floor2 = $Floor2
 
 func _process(delta: float) -> void:
+	 # Floor Movement
 	floor1.position.x -= 250 * delta
 	floor2.position.x -= 250 * delta
 	if floor1.position.x <= -1920:
