@@ -22,6 +22,17 @@ enum ABILITY{
 @export var ability_5: TextureRect
 @export var ability_input_5: TextureRect
 
+@export var ability_1_mask_icon:Texture
+@export var ability_1_ability_icon:Texture
+@export var ability_2_mask_icon:Texture
+@export var ability_2_ability_icon:Texture
+@export var ability_3_mask_icon:Texture
+@export var ability_3_ability_icon:Texture
+@export var ability_4_mask_icon:Texture
+@export var ability_4_ability_icon:Texture
+@export var ability_5_mask_icon:Texture
+@export var ability_5_ability_icon:Texture
+
 
 var currently_active:ABILITY
 
@@ -65,6 +76,36 @@ func get_ability_input_texture(ability: ABILITY) -> TextureRect:
 			return ability_input_4
 		ABILITY.POWER:
 			return ability_input_5
+		_:
+			return null
+
+func get_ability_texture_mask(ability:ABILITY)-> Texture:
+	match ability:
+		ABILITY.MASK1:
+			return ability_1_mask_icon
+		ABILITY.MASK2:
+			return ability_2_mask_icon
+		ABILITY.MASK3:
+			return ability_3_mask_icon
+		ABILITY.CANDY_BAR:
+			return ability_4_mask_icon
+		ABILITY.POWER:
+			return ability_5_mask_icon
+		_:
+			return null
+
+func get_ability_texture_ability(ability:ABILITY)-> Texture:
+	match ability:
+		ABILITY.MASK1:
+			return ability_1_ability_icon
+		ABILITY.MASK2:
+			return ability_2_ability_icon
+		ABILITY.MASK3:
+			return ability_3_ability_icon
+		ABILITY.CANDY_BAR:
+			return ability_4_ability_icon
+		ABILITY.POWER:
+			return ability_5_ability_icon
 		_:
 			return null
 
@@ -112,16 +153,14 @@ func swap_mask(ability:ABILITY)-> void:
 	
 	if (ability != ABILITY.NONE):
 		var ability_texture:TextureRect = get_ability_texture_rect(ability)
-		#var indicator:AbilityIndicator = ability_texture.get_child(0)
-		#indicator.set_selected(true)
+		ability_texture.texture = get_ability_texture_ability(ability)
 		currently_active = ability 
 
 
 func deactivate_ability(ability:ABILITY)-> void:
 	if ability != ABILITY.NONE:
 		var ability_texture:TextureRect = get_ability_texture_rect(ability)
-		#var indicator:AbilityIndicator = ability_texture.get_child(0)
-		#indicator.set_selected(false)
+		ability_texture.texture = get_ability_texture_mask(ability)
 		currently_active = ABILITY.NONE
 
 
