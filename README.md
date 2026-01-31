@@ -7,7 +7,7 @@ Description: Hectic Side-scroller where the Player
  puzzling through various obstacles to maximize score
 
 - Alvin V ??? - Art
-- Ana ??? - Art
+- Anastasia Cook- Senior Artist
 - Connor ??? - Audio
 - Kesler ??? - Coder
 - Jake ??? - Audio
