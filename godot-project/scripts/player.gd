@@ -1,6 +1,7 @@
 class_name Player extends Node2D
 
 signal player_died
+signal mask_changed(mask:String)
 
 var mask = "none"
 var batMaskSonar = preload("res://scenes/bat_mask_sonar_area.tscn")
@@ -33,6 +34,7 @@ func SwitchMask(targetMask):
 	ResetMaskProperties(mask)
 	mask = targetMask
 	$DebugLabel.text = mask
+	mask_changed.emit(targetMask)
 	match mask:
 		
 		"none":

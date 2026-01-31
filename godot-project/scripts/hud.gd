@@ -5,8 +5,8 @@ enum ABILITY{
 	MASK2,
 	MASK3,
 	CANDY_BAR,
-	NO_MASK,
-	NONE
+	NONE,
+	POWER
 }
 
 @export var score_value: RichTextLabel
@@ -48,7 +48,7 @@ func get_ability_texture_rect(ability: ABILITY) -> TextureRect:
 			return ability_3
 		ABILITY.CANDY_BAR:
 			return ability_4
-		ABILITY.NO_MASK:
+		ABILITY.POWER:
 			return ability_5
 		_:
 			return null
@@ -63,7 +63,7 @@ func get_ability_input_texture(ability: ABILITY) -> TextureRect:
 			return ability_input_3
 		ABILITY.CANDY_BAR:
 			return ability_input_4
-		ABILITY.NO_MASK:
+		ABILITY.POWER:
 			return ability_input_5
 		_:
 			return null
@@ -71,31 +71,69 @@ func get_ability_input_texture(ability: ABILITY) -> TextureRect:
 func update_score(value)-> void:
 	score_value.text = str(value)
 
-func _on_ability_button_pressed(ability:ABILITY)-> void:
-	var ability_texture:TextureRect = get_ability_texture_rect(ability)
-	var ability_input_texture:TextureRect = get_ability_input_texture(ability)
-	ability_texture.modulate = Color.RED
-	ability_input_texture.modulate = Color.BLUE
-	if ability == ABILITY.CANDY_BAR:
-		var tween:Tween = create_tween()
-		tween.tween_interval(0.5)
-		await tween.finished
-		ability_texture.modulate = Color.WHITE
-	else:
-		swap_mask(ability)
+func _unhandled_input(event: InputEvent) -> void:
+	if (event.is_action_pressed("Mask1")):
+		_on_ability_button_pressed(ABILITY.MASK1)
+	elif (event.is_action_pressed("Mask2")):
+		_on_ability_button_pressed(ABILITY.MASK2)
+	elif (event.is_action_pressed("Mask3")):
+		_on_ability_button_pressed(ABILITY.MASK3)
+	elif (event.is_action_pressed("CandyBar")):
+		_on_ability_button_pressed(ABILITY.CANDY_BAR)
+	elif (event.is_action_pressed("MaskAbility")):
+		_on_ability_button_pressed(ABILITY.POWER)
+	elif (event.is_action_released("Mask1")):
+		_on_ability_button_released(ABILITY.MASK1)
+	elif (event.is_action_released("Mask2")):
+		_on_ability_button_released(ABILITY.MASK2)
+	elif (event.is_action_released("Mask3")):
+		_on_ability_button_released(ABILITY.MASK3)
+	elif (event.is_action_released("CandyBar")):
+		_on_ability_button_released(ABILITY.CANDY_BAR)
+	elif (event.is_action_released("MaskAbility")):
+		_on_ability_button_released(ABILITY.POWER)
+
+
+func _on_mask_changed(mask:String)-> void:
+	match mask:
+		"bat":
+			swap_mask(ABILITY.MASK1)
+		"speed":
+			swap_mask(ABILITY.MASK2)
+		"reveal":
+			swap_mask(ABILITY.MASK3)
+		"none":
+			swap_mask(ABILITY.NONE)
+
 
 func swap_mask(ability:ABILITY)-> void:
 	if (currently_active != ABILITY.NONE):
 		deactivate_ability(currently_active)
 	
-	currently_active = ability 
+	if (ability != ABILITY.NONE):
+		var ability_texture:TextureRect = get_ability_texture_rect(ability)
+		#var indicator:AbilityIndicator = ability_texture.get_child(0)
+		#indicator.set_selected(true)
+		currently_active = ability 
+
 
 func deactivate_ability(ability:ABILITY)-> void:
 	if ability != ABILITY.NONE:
 		var ability_texture:TextureRect = get_ability_texture_rect(ability)
-		ability_texture.modulate = Color.WHITE
+		#var indicator:AbilityIndicator = ability_texture.get_child(0)
+		#indicator.set_selected(false)
 		currently_active = ABILITY.NONE
+
+
+func _on_ability_button_pressed(ability:ABILITY)-> void:
+	var ability_input_texture:TextureRect = get_ability_input_texture(ability)
+	ability_input_texture.pivot_offset_ratio = Vector2.ONE*0.5
+	var tween:Tween = create_tween()
+	tween.tween_property(ability_input_texture,"scale",Vector2.ONE*0.95,0.1)
+
 
 func _on_ability_button_released(ability:ABILITY)-> void:
 	var ability_input_texture:TextureRect = get_ability_input_texture(ability)
-	ability_input_texture.modulate = Color.WHITE
+	ability_input_texture.pivot_offset_ratio = Vector2.ONE*0.5
+	var tween:Tween = create_tween()
+	tween.tween_property(ability_input_texture,"scale",Vector2.ONE,0.1)
