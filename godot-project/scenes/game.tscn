@@ -39,3 +39,13 @@ shape = SubResource("RectangleShape2D_yqjtg")
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=775510795]
 script = ExtResource("3_lnu2h")
+
+[node name="BatsTimer" type="Timer" parent="EnemySpawner" unique_id=1556372327]
+
+[node name="RaccoonTimer" type="Timer" parent="EnemySpawner" unique_id=456341812]
+
+[node name="ArmyTimer" type="Timer" parent="EnemySpawner" unique_id=1439680860]
+
+[connection signal="timeout" from="EnemySpawner/BatsTimer" to="EnemySpawner" method="_on_bats_timer_timeout"]
+[connection signal="timeout" from="EnemySpawner/RaccoonTimer" to="EnemySpawner" method="_on_raccoon_timer_timeout"]
+[connection signal="timeout" from="EnemySpawner/ArmyTimer" to="EnemySpawner" method="_on_army_timer_timeout"]
