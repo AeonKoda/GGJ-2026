@@ -89,7 +89,7 @@ func start_new_game()-> void:
 	#tween.tween_property(play_button,"scale",Vector2.ONE,0.2)\
 	#.set_ease(Tween.EASE_OUT)\
 	#.set_trans(Tween.TRANS_EXPO)
-	#await tween.finished
+	Global.game_started.emit()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func set_highscore_labels()-> void:

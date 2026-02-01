@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://wv0gfh4ysjkj"
+MusicManagerSingleton="*uid://cpjq6qi03sld"
 
 [display]
 

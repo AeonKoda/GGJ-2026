@@ -7,6 +7,7 @@
 size = Vector2(128, 896)
 
 [node name="Racoon" type="Node2D" unique_id=688082479 node_paths=PackedStringArray("area_2d")]
+z_index = 1
 script = ExtResource("1_ruweg")
 area_2d = NodePath("Area2D")
 

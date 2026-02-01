@@ -13,7 +13,10 @@ func _on_area_entered(other_area: Area2D) -> void:
 	if collider is Player:
 		var player:Player = collider as Player
 		
-		player.kill_player(Global.WAYS_TO_DIE.CHECKPOINT)
+		# 50% chance to die to racoon
+		if randf() > 0.5:
+			player.kill_player(Global.WAYS_TO_DIE.CHECKPOINT)
+			
 	elif collider is CandyBar:
 		queue_free()
 

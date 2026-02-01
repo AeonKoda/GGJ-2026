@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://d17vasflu026"]
 
-[ext_resource type="Script" uid="uid://b6b87mpllcifr" path="res://scenes/check_point.gd" id="1_klegx"]
+[ext_resource type="Script" uid="uid://b6b87mpllcifr" path="res://scripts/check_point.gd" id="1_klegx"]
 [ext_resource type="Texture2D" uid="uid://dv330dj7fbk3r" path="res://icon.svg" id="2_7brbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx78p"]
 size = Vector2(128, 896)
 
 [node name="CheckPoint" type="Node2D" unique_id=688082479 node_paths=PackedStringArray("area_2d")]
+z_index = 1
 script = ExtResource("1_klegx")
 area_2d = NodePath("Area2D")
 
