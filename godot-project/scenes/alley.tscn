@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dh8qlonkcflm1"]
 
 [ext_resource type="Texture2D" uid="uid://cjg6v0n4n1h6k" path="res://art/Alley_02.PNG" id="1_knqwg"]
-[ext_resource type="Script" uid="uid://by6lj6y3tetrb" path="res://scripts/alley.gd" id="1_mxqnx"]
+[ext_resource type="Script" path="res://scripts/alley.gd" id="1_mxqnx"]
 [ext_resource type="AudioStream" uid="uid://cxmrvo6qxlmlx" path="res://audio/SFX/environment/Alley wail.wav" id="3_556vy"]
 
 [node name="Alley" type="Node2D" unique_id=1900122027 node_paths=PackedStringArray("audio_stream_player")]
