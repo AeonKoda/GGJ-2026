@@ -118,7 +118,7 @@ script = ExtResource("1_g2els")
 position = Vector2(0, -145)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_g2els")
-animation = &"no mask running"
+animation = &"bear mask running"
 autoplay = "no mask running"
 
 [node name="EyeHeight" type="Node2D" parent="." unique_id=1841328267]

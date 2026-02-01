@@ -58,7 +58,7 @@ func kill_player(cause_of_death:Global.WAYS_TO_DIE)-> void:
 func SwitchMask(targetMask):
 	ResetMaskProperties(mask)
 	mask = targetMask
-	$DebugLabel.text = mask
+	#$DebugLabel.text = mask
 	mask_changed.emit(targetMask)
 	match mask:
 		
@@ -66,7 +66,7 @@ func SwitchMask(targetMask):
 			$Sprite.animation = "no mask running"
 		
 		"bat":
-			$Sprite.animation = "bat mask running"
+			$Sprite.animation = "owl mask running"
 			var sonarInstance = batMaskSonar.instantiate()
 			get_node("EyeHeight").add_child(sonarInstance)
 			maskPropertyNode = sonarInstance
@@ -75,7 +75,7 @@ func SwitchMask(targetMask):
 			$Sprite.animation = "fox mask running"
 		
 		"reveal":
-			$Sprite.animation = "owl mask running"
+			$Sprite.animation = "bear mask running"
 
 func ResetMaskProperties(targetMask):
 	match targetMask:
