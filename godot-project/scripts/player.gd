@@ -65,7 +65,7 @@ func SwitchMask(targetMask):
 			$Sprite.animation = "no mask running"
 		
 		"bat":
-			$Sprite.animation = "bat mask running"
+			$Sprite.animation = "owl mask running"
 			var sonarInstance = batMaskSonar.instantiate()
 			get_node("EyeHeight").add_child(sonarInstance)
 			maskPropertyNode = sonarInstance
@@ -74,7 +74,7 @@ func SwitchMask(targetMask):
 			$Sprite.animation = "fox mask running"
 		
 		"reveal":
-			$Sprite.animation = "owl mask running"
+			$Sprite.animation = "bat mask running"
 
 func ResetMaskProperties(targetMask):
 	match targetMask:
