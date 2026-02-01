@@ -12,6 +12,8 @@ class_name DeathPanel extends CanvasLayer
 @export var score_label_2: Label
 @export var score_label_3: Label
 
+@export var high_score_tag: RichTextLabel
+
 var name_labels:Array[Label]
 var score_labels:Array[Label]
 
@@ -21,8 +23,11 @@ func _ready() -> void:
 	name_labels = [name_label_1,name_label_2, name_label_3]
 	score_labels = [score_label_1,score_label_2,score_label_3]
 
-func show_pannel()-> void:
+func show_pannel(is_high_score:bool, current_score:int)-> void:
+	set_score(current_score)
 	set_high_scores()
+	if is_high_score:
+		high_score_tag.visible = true
 	var start_pos = death_panel.position.y
 	death_panel.position.y = -800
 	var tween:Tween = create_tween()
