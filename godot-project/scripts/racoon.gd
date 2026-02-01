@@ -5,6 +5,7 @@ class_name Racoon extends Node2D
 @export var racoon_pile_sprite:Texture 
 
 @onready var sprite_2d: Sprite2D = $Visuals/Sprite2D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready() -> void:
 	area_2d.area_entered.connect(_on_area_entered)
@@ -23,6 +24,7 @@ func _on_area_entered(other_area: Area2D) -> void:
 			scale = Vector2.ONE * 2
 			position.x -= 200
 			position.y += 100
+			audio_stream_player.play()
 			
 	elif collider is CandyBar:
 		queue_free()

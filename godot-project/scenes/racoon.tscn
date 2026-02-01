@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://204ftcmbn8kv" path="res://scripts/racoon.gd" id="1_ruweg"]
 [ext_resource type="Texture2D" uid="uid://dishxdjtrqhgc" path="res://art/enemy sprites/RaccoonPile_01.PNG" id="2_ceuli"]
 [ext_resource type="Texture2D" uid="uid://djugmittxsph3" path="res://art/enemy sprites/TrashcanRaccoon_01.PNG" id="2_ruweg"]
+[ext_resource type="AudioStream" uid="uid://ci66pmsyp3wy4" path="res://audio/SFX/raccoon/Unfriendly Raccoon.wav" id="4_vy0h7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx78p"]
 size = Vector2(128, 896)
@@ -24,3 +25,6 @@ shape = SubResource("RectangleShape2D_xx78p")
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_ruweg")
 offset = Vector2(350, -900)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1154090798]
+stream = ExtResource("4_vy0h7")

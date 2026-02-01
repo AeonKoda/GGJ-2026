@@ -6,8 +6,11 @@ signal stop_movement
 @export var hud: HUD
 @export var player: Player
 @export var input_controller: InputController
+@onready var death_panel: CanvasLayer = $DeathPanel
+
 @onready var floor_and_bg: Node2D = $"Floor & BG"
 @onready var enemy_spawner: EnemySpawner = $EnemySpawner
+
 
 
 var is_playing:bool = false
@@ -25,7 +28,7 @@ func _ready() -> void:
 	player.mask_changed.connect(hud._on_mask_changed)
 	enemy_spawner.enemy_spawned.connect(_on_encounter_spawned)
 	player.player_died.connect(enemy_spawner.stop_all_timers)
-	#stop_movement.connect(floor_and_bg._on_death) #[TO-DO] enable this once code is added in floor/bg script
+	stop_movement.connect(floor_and_bg._on_death)
 	
 	is_playing = true
 
@@ -42,6 +45,7 @@ func _on_player_died()-> void:
 	check_for_high_score()
 	Global.game_ended.emit()
 	stop_movement.emit()
+	death_panel.visible = true
 	#get_tree().change_scene_to_file.call_deferred("res://scenes/main_menu.tscn")
 
 func check_for_high_score() -> void:

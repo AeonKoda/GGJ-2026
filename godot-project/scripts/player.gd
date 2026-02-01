@@ -20,7 +20,7 @@ var targetX : float = startingX
 var alive:bool = true
 
 func _ready() -> void:
-	$Sprite.play("running")
+	$Sprite.play("no mask running")
 	position.x = 200
 	position.y = 900
 
