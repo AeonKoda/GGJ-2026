@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://kwct21g744cj"]
 
 [ext_resource type="Script" uid="uid://n6hf7th36d5k" path="res://scripts/death_panel.gd" id="1_qmlx8"]
+[ext_resource type="Theme" uid="uid://cgc2dcf1l65js" path="res://ui_theme/default_theme.tres" id="2_6vlok"]
 
-[node name="DeathPanel" type="CanvasLayer" unique_id=552984179 node_paths=PackedStringArray("score_value_label", "death_panel", "retry_button", "main_menu_button", "name_label_1", "name_label_2", "name_label_3", "score_label_1", "score_label_2", "score_label_3")]
+[node name="DeathPanel" type="CanvasLayer" unique_id=552984179 node_paths=PackedStringArray("score_value_label", "death_panel", "retry_button", "main_menu_button", "name_label_1", "name_label_2", "name_label_3", "score_label_1", "score_label_2", "score_label_3", "high_score_tag")]
 script = ExtResource("1_qmlx8")
 score_value_label = NodePath("DeathPanel/MarginContainer/VBoxContainer/ScoreValueLabel")
 death_panel = NodePath("DeathPanel")
@@ -14,6 +15,7 @@ name_label_3 = NodePath("DeathPanel/MarginContainer/VBoxContainer/HBoxContainer3
 score_label_1 = NodePath("DeathPanel/MarginContainer/VBoxContainer/HBoxContainer/Label2")
 score_label_2 = NodePath("DeathPanel/MarginContainer/VBoxContainer/HBoxContainer2/Label2")
 score_label_3 = NodePath("DeathPanel/MarginContainer/VBoxContainer/HBoxContainer3/Label2")
+high_score_tag = NodePath("DeathPanel/MarginContainer/VBoxContainer/ScoreValueLabel/HighScoreTag")
 
 [node name="DeathPanel" type="Panel" parent="." unique_id=325612385]
 custom_minimum_size = Vector2(0, 600)
@@ -46,6 +48,7 @@ size_flags_vertical = 4
 
 [node name="ScoreLabel" type="Label" parent="DeathPanel/MarginContainer/VBoxContainer" unique_id=1142979327]
 layout_mode = 2
+theme = ExtResource("2_6vlok")
 theme_override_font_sizes/font_size = 32
 text = "Score:"
 horizontal_alignment = 1
@@ -56,7 +59,8 @@ theme_override_font_sizes/font_size = 72
 text = "5610"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DeathPanel/MarginContainer/VBoxContainer/ScoreValueLabel" unique_id=1379323748]
+[node name="HighScoreTag" type="RichTextLabel" parent="DeathPanel/MarginContainer/VBoxContainer/ScoreValueLabel" unique_id=1379323748]
+visible = false
 layout_mode = 0
 offset_left = -79.5
 offset_top = -7.2700195
@@ -78,6 +82,7 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="DeathPanel/MarginContainer/VBoxContainer" unique_id=918743722]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_6vlok")
 text = "High Scores"
 horizontal_alignment = 1
 
@@ -87,11 +92,13 @@ layout_mode = 2
 [node name="Label" type="Label" parent="DeathPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2118859746]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_6vlok")
 text = "Uknown :"
 
 [node name="Label2" type="Label" parent="DeathPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1364553234]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_6vlok")
 text = "0"
 horizontal_alignment = 2
 
@@ -101,11 +108,13 @@ layout_mode = 2
 [node name="Label" type="Label" parent="DeathPanel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1883762407]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_6vlok")
 text = "Uknown :"
 
 [node name="Label2" type="Label" parent="DeathPanel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=684705359]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_6vlok")
 text = "0"
 horizontal_alignment = 2
 
@@ -115,11 +124,13 @@ layout_mode = 2
 [node name="Label" type="Label" parent="DeathPanel/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1242027039]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_6vlok")
 text = "Uknown :"
 
 [node name="Label2" type="Label" parent="DeathPanel/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=670061249]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_6vlok")
 text = "0"
 horizontal_alignment = 2
 

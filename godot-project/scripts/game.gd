@@ -43,10 +43,8 @@ func _on_player_died()-> void:
 	
 	#[TO-DO] call stop on the enemy spawners and the floor movement script
 	#[TO-DO] display a death screen with the score and potential highscore?
-	var high_score:bool = check_for_high_score()
-	
-	death_panel.set_score(current_score)
-	death_panel.show_pannel()
+	var is_high_score:bool = check_for_high_score()
+	death_panel.show_pannel(is_high_score,current_score)
 	
 	Global.game_ended.emit()
 	stop_movement.emit()
@@ -61,7 +59,7 @@ func check_for_high_score() -> bool:
 		if current_score > high_scores[i]["score"]:
 			
 			# [TO-DO] add a way to get the player name
-			var player_name: String = "Unkown"
+			var player_name: String = "Lorme"
 			
 			# Insert the new score
 			high_scores.insert(i, {"name": player_name, "score": current_score})

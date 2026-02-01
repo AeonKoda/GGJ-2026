@@ -75,7 +75,7 @@ layout_mode = 2
 [node name="ScoreLabel" type="RichTextLabel" parent="HUD/Score/MarginContainer/HBoxContainer" unique_id=485717180]
 layout_mode = 2
 theme = ExtResource("2_6fi6k")
-text = "SCORE:"
+text = "SCORE:  "
 fit_content = true
 autowrap_mode = 0
 

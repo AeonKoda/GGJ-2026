@@ -18,6 +18,8 @@ const bat_max_y = 200
 @onready var sewerScene = preload("res://scenes/sewer_vent.tscn")
 @onready var jack_scene = preload("res://scenes/jack.tscn")
 
+var spawn_buffer_timer:float = 1.5
+
 func _ready() -> void:
 	reset_timer($BatsTimer)
 	reset_timer($RaccoonTimer)
@@ -50,6 +52,10 @@ func stop_all_timers()-> void:
 	$SewerTimer.stop()
 
 func spawn_jack(pos:Vector2)->void:
+	# Stops spawn overlap
+	if $ArmyTimer.time_left < spawn_buffer_timer || $SewerTimer.time_left < spawn_buffer_timer:
+		return
+	
 	if randi_range(1, 4) == 1:
 		var jack = jack_scene.instantiate()
 		jack.position = pos
@@ -66,6 +72,7 @@ func _on_bats_timer_timeout() -> void:
 	reset_timer($BatsTimer)
 
 func _on_raccoon_timer_timeout() -> void:
+	
 	print("raccoon spawn")
 	var racoon_instance = racoon_scene.instantiate()
 	get_parent().add_child(racoon_instance)
@@ -74,6 +81,11 @@ func _on_raccoon_timer_timeout() -> void:
 	reset_timer($RaccoonTimer)
 
 func _on_army_timer_timeout() -> void:
+	# Stops spawn overlap
+	if $SewerTimer.time_left < spawn_buffer_timer:
+		reset_timer($ArmyTimer)
+		return
+		
 	print("army spawn")
 	var check_point_instance = check_point_scene.instantiate()
 	get_parent().add_child(check_point_instance)
@@ -83,9 +95,13 @@ func _on_army_timer_timeout() -> void:
 
 
 func _on_sewer_timer_timeout() -> void:
+	if $ArmyTimer.time_left < spawn_buffer_timer:
+		reset_timer($SewerTimer)
+		return
+		
 	print("sewer spawn")
 	var sewerInstance = sewerScene.instantiate()
 	get_parent().add_child(sewerInstance)
 	sewerInstance.position = Vector2(2500,900)
 	enemy_spawned.emit(sewerInstance)
-	reset_timer($SewerTimer)
+	
