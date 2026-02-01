@@ -5,7 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bvcxic5uprkr7" path="res://scenes/player.tscn" id="2_lbhrr"]
 [ext_resource type="Script" uid="uid://cfby2shv3jk1k" path="res://scripts/enemy_spawner.gd" id="3_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://dh5cvahkhah68" path="res://art/CobbleRoad.PNG" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://cdpkcx2qeh1vh" path="res://scenes/building.tscn" id="3_vtaks"]
 [ext_resource type="PackedScene" uid="uid://m77l7mr0yh54" path="res://scenes/hud.tscn" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://bl24tx88eprxc" path="res://art/ui/Sonar_Blast_Button.png" id="7_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://ccjwqu61wrw1a" path="res://art/ui/Dash_Button.png" id="8_vtaks"]
+[ext_resource type="Texture2D" uid="uid://dqumjqaip18qb" path="res://art/ui/Hand_Lantern_Button.png" id="9_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cc62464l0hiu2" path="res://scenes/sewer_vent.tscn" id="7_u5sy4"]
 
 [node name="Game" type="Node2D" unique_id=2128105295 node_paths=PackedStringArray("hud", "player")]
@@ -16,7 +20,21 @@ player = NodePath("Player")
 [node name="Floor & BG" type="Node2D" parent="." unique_id=873563678]
 script = ExtResource("1_uwrxv")
 
-[node name="Buildings" type="Node2D" parent="Floor & BG" unique_id=1652494301]
+[node name="Building4" parent="Floor & BG" unique_id=142050957 instance=ExtResource("3_vtaks")]
+position = Vector2(2118, 505)
+scale = Vector2(0.39999998, 0.39999998)
+
+[node name="Building3" parent="Floor & BG" unique_id=262096115 instance=ExtResource("3_vtaks")]
+position = Vector2(1412, 505)
+scale = Vector2(0.39999998, 0.39999998)
+
+[node name="Building2" parent="Floor & BG" unique_id=1270485396 instance=ExtResource("3_vtaks")]
+position = Vector2(706, 505)
+scale = Vector2(0.39999998, 0.39999998)
+
+[node name="Building1" parent="Floor & BG" unique_id=969528736 instance=ExtResource("3_vtaks")]
+position = Vector2(0, 505)
+scale = Vector2(0.4, 0.4)
 
 [node name="Floor1" type="Sprite2D" parent="Floor & BG" unique_id=303084392]
 position = Vector2(431.99997, 647.99994)
@@ -43,6 +61,8 @@ position = Vector2(3888, 648)
 scale = Vector2(0.422, 0.422)
 texture = ExtResource("3_p57ef")
 
+[node name="Alley" type="Node2D" parent="Floor & BG" unique_id=421844141]
+
 [node name="Player" parent="." unique_id=391822921 instance=ExtResource("2_lbhrr")]
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=775510795]
@@ -55,6 +75,9 @@ script = ExtResource("3_lnu2h")
 [node name="ArmyTimer" type="Timer" parent="EnemySpawner" unique_id=1439680860]
 
 [node name="HUD" parent="." unique_id=1606327440 instance=ExtResource("4_lbhrr")]
+ability_1_ability_icon = ExtResource("7_0tnpc")
+ability_2_ability_icon = ExtResource("8_vtaks")
+ability_3_ability_icon = ExtResource("9_kvpfn")
 
 [node name="SewerVent" parent="." unique_id=1888909091 instance=ExtResource("7_u5sy4")]
 position = Vector2(1467, 900)
