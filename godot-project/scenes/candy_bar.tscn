@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cebxgjw8fopve"]
 
-[ext_resource type="Script" path="res://scripts/candy_bar.gd" id="1_88kl2"]
+[ext_resource type="Script" uid="uid://b1wnwxrbekmw1" path="res://scripts/candy_bar.gd" id="1_88kl2"]
 [ext_resource type="Texture2D" uid="uid://o7yetbkolq1a" path="res://art/Candy.png" id="2_88kl2"]
+[ext_resource type="AudioStream" uid="uid://bnk147yqgh8g6" path="res://audio/CandyBar.wav" id="3_xuy6k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iltcx"]
 size = Vector2(172, 178)
@@ -20,3 +21,6 @@ texture = ExtResource("2_88kl2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=725870811]
 shape = SubResource("RectangleShape2D_iltcx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=244743244]
+stream = ExtResource("3_xuy6k")

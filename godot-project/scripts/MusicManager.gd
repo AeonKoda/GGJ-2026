@@ -14,11 +14,11 @@ func _ready() -> void:
 
 # Connects to Global.game_started signal
 func _on_game_started()-> void:
-	audio_fade_out(1)
+	audio_fade_out(0.5)
 	await fade_tween.finished
 	audio_stream_player.stream = game_track
 	audio_stream_player.play()
-	audio_fade_in()
+	audio_fade_in(0)
 
 # Connects to Global.game_ended signal
 func _on_game_ended()-> void:
