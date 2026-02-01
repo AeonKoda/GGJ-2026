@@ -12,7 +12,7 @@ extends Node2D
 
 var buildings_total_width: int = 2471
 var building_scene = preload("res://scenes/building.tscn")
-var buildings_till_alley: int = 1
+var buildings_till_alley: int = 7
 var alley_scene = preload("res://scenes/alley.tscn")
 var last_building: int = 1
 
