@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bl24tx88eprxc" path="res://art/ui/Sonar_Blast_Button.png" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://ccjwqu61wrw1a" path="res://art/ui/Dash_Button.png" id="8_vtaks"]
 [ext_resource type="Texture2D" uid="uid://dqumjqaip18qb" path="res://art/ui/Hand_Lantern_Button.png" id="9_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://cc62464l0hiu2" path="res://scenes/sewer_vent.tscn" id="7_u5sy4"]
 
 [node name="Game" type="Node2D" unique_id=2128105295 node_paths=PackedStringArray("hud", "player")]
 script = ExtResource("1_iywne")
@@ -63,7 +64,6 @@ texture = ExtResource("3_p57ef")
 [node name="Alley" type="Node2D" parent="Floor & BG" unique_id=421844141]
 
 [node name="Player" parent="." unique_id=391822921 instance=ExtResource("2_lbhrr")]
-position = Vector2(199, 909)
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=775510795]
 script = ExtResource("3_lnu2h")
@@ -78,6 +78,9 @@ script = ExtResource("3_lnu2h")
 ability_1_ability_icon = ExtResource("7_0tnpc")
 ability_2_ability_icon = ExtResource("8_vtaks")
 ability_3_ability_icon = ExtResource("9_kvpfn")
+
+[node name="SewerVent" parent="." unique_id=1888909091 instance=ExtResource("7_u5sy4")]
+position = Vector2(1467, 900)
 
 [connection signal="timeout" from="EnemySpawner/BatsTimer" to="EnemySpawner" method="_on_bats_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/RaccoonTimer" to="EnemySpawner" method="_on_raccoon_timer_timeout"]
