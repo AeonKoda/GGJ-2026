@@ -93,4 +93,6 @@ func ResetMaskProperties(targetMask):
 	maskPropertyNode = null
 
 func Die(killer):
+	if !can_die:
+		return
 	emit_signal("player_died")

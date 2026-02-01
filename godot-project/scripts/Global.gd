@@ -1,5 +1,8 @@
 extends Node
 
+signal game_started
+signal game_ended
+
 enum WAYS_TO_DIE{
 	BATS,
 	JACK_THE_RIPPER,

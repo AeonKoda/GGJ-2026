@@ -157,6 +157,8 @@ func swap_mask(ability:ABILITY)-> void:
 	if (ability != ABILITY.NONE):
 		var ability_texture:TextureRect = get_ability_texture_rect(ability)
 		ability_texture.texture = get_ability_texture_ability(ability)
+		ability_texture.get_child(0).emitting = true
+		ability_texture.get_child(1).emitting = true
 		currently_active = ability 
 
 
@@ -164,6 +166,8 @@ func deactivate_ability(ability:ABILITY)-> void:
 	if ability != ABILITY.NONE:
 		var ability_texture:TextureRect = get_ability_texture_rect(ability)
 		ability_texture.texture = get_ability_texture_mask(ability)
+		ability_texture.get_child(0).emitting = false
+		ability_texture.get_child(1).emitting = false
 		currently_active = ABILITY.NONE
 
 

@@ -52,7 +52,8 @@ func _on_player_died()-> void:
 	#[TO-DO] call stop on the enemy spawners and the floor movement script
 	#[TO-DO] display a death screen with the score and potential highscore?
 	check_for_high_score()
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	Global.game_ended.emit()
+	get_tree().change_scene_to_file.call_deferred("res://scenes/main_menu.tscn")
 
 func check_for_high_score() -> void:
 	# High scores are formatted as [{"name": "Alice", "score": 1000}, etc.]
