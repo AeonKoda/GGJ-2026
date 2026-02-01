@@ -15,6 +15,8 @@ var targetX : float = startingX
 
 func _ready() -> void:
 	$Sprite.play("running")
+	position.x = 200
+	position.y = 900
 
 func _process(_delta: float) -> void:
 	$Sprite.position.x += sin(Time.get_ticks_msec() * 0.01) * 0.8
