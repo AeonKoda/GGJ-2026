@@ -59,6 +59,7 @@ func _process(_delta: float) -> void:
 	if mask == "speed":
 		if Input.is_action_just_pressed("MaskAbility"):
 			$AnimationPlayer.play("dash")
+			$DashSfx.play(0.06)
 	
 	if mask == "reveal":
 		if Input.is_action_just_pressed("MaskAbility"):

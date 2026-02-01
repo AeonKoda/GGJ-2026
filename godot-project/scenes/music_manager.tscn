@@ -12,4 +12,5 @@ audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1476455349]
 stream = ExtResource("3_jd6i5")
+volume_db = -6.0
 autoplay = true
