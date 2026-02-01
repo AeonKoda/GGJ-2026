@@ -5,15 +5,19 @@ extends Node2D
 @onready var floor3: Sprite2D = $Floor3
 @onready var floor4: Sprite2D = $Floor4
 @onready var floor5: Sprite2D = $Floor5
+@onready var building1: Node2D = $Building1
+@onready var building2: Node2D = $Building2
+@onready var building3: Node2D = $Building3
+@onready var building4: Node2D = $Building4
 
 var buildings_total_width: int = 0
 var building_scene = preload("res://scenes/building.tscn")
 var buildings_till_alley: int = 1
 var alley_scene = preload("res://scenes/alley.tscn")
 
-func _ready() -> void:
-	while buildings_total_width <= 1920:
-		create_building()
+#func _ready() -> void:
+	#while buildings_total_width <= 1920:
+		#create_building()
 
 func _process(delta: float) -> void:
 	 # Floor Movement
@@ -39,27 +43,36 @@ func _process(delta: float) -> void:
 		floor5.position.x = 2880
 	
 	 # Building Movement
-	buildings_total_width -= 250 * delta
-	if buildings_total_width <= 1920:
-			create_building()
-			buildings_till_alley -= 1
-			print(buildings_till_alley)
-			if buildings_till_alley == 0:
-				var alley = alley_scene.instantiate()
-				alley.position = Vector2(3000, 567)
-				buildings_total_width += 210
-				alley.z_index = 1
-				$Buildings.add_child(alley)
-				buildings_till_alley = randi_range(5, 7)
-	for building in $Buildings.get_children():
-		building.position.x -= 250 * delta
-		building.position.x = round(building.position.x)
-		if building.position.x <= -1100/2:
-			building.queue_free()
+	building1.position.x -= 250 * delta
+	building1.position.x = round(building1.position.x)
+	building2.position.x -= 250 * delta
+	building2.position.x = round(building2.position.x)
+	building3.position.x -= 250 * delta
+	building3.position.x = round(building3.position.x)
+	building4.position.x -= 250 * delta
+	building4.position.x = round(building4.position.x)
+	
+	#buildings_total_width -= 250 * delta
+	#if buildings_total_width <= 1920:
+			#create_building()
+			#buildings_till_alley -= 1
+			#print(buildings_till_alley)
+			#if buildings_till_alley == 0:
+				#var alley = alley_scene.instantiate()
+				#alley.position = Vector2(3000, 567)
+				#buildings_total_width += 210
+				#alley.z_index = 1
+				#$Buildings.add_child(alley)
+				#buildings_till_alley = randi_range(5, 7)
+	#for building in $Buildings.get_children():
+		#building.position.x -= 250 * delta
+		#building.position.x = round(building.position.x)
+		#if building.position.x <= -1100/2:
+			#building.queue_free()
 
-func create_building():
-	var building = building_scene.instantiate()
-	building.scale = Vector2(0.5, 0.5)
-	building.position = Vector2(buildings_total_width + 1100/2, 500)
-	buildings_total_width += 1100
-	$Buildings.add_child(building)
+#func create_building():
+	#var building = building_scene.instantiate()
+	#building.scale = Vector2(0.5, 0.5)
+	#building.position = Vector2(buildings_total_width + 1100/2, 500)
+	#buildings_total_width += 1100
+	#$Buildings.add_child(building)
